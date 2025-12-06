@@ -1,0 +1,32 @@
+# @package _global_
+general:
+    name : 'qm9h'
+    gpus : 1
+    wandb: 'online'
+    evaluate_all_checkpoints: False
+    test_only: null
+    # debug
+    check_val_every_n_epochs: 10
+    sample_every_val: 1
+    conditional: True
+    condition_values: -400
+    target: 'u0'
+    guidance_weight: 2.0
+    log_every_steps: 20
+    samples_to_generate: 32
+    final_model_samples_to_generate: 128
+    molecules_energies_to_evaluate: 8
+train:
+    n_epochs: 2000
+    batch_size: 512
+    save_model: True
+    lr: 0.00008
+sample:
+    sample_steps: 50
+    time_distortion: 'polydec'
+    omega: 0.05
+    eta: 0
+model:
+    n_layers: 7
+dataset:
+    remove_h: False

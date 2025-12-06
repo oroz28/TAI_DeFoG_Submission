@@ -1,0 +1,21 @@
+# Ignore internal Git repos in external folders
+external/DeFoG/.git
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Conda environment files
+env/
+*.conda
+*.env
+
+# Outputs, logs, results (optional, if you don't want to track them)
+outputs/
+results/
+logs/
+
