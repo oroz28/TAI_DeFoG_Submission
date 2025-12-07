@@ -8,10 +8,15 @@ from source.metrics.parser import parse_metrics_file, get_vun
 
 args = sys.argv
 
+if args[1] == "planar":
+    exp_name = "planar.ckpt"
+else:
+    exp_name = "qm9_with_h_conditional.ckpt"
+
 repo_root = Path(__file__).resolve().parents[1]
 outputs_dir = repo_root / "outputs" / f"default_vs_model_{args[1]}"
 results_dir = repo_root / "results" / "plots"
-results_dir.mkdir(exist_ok=True)
+results_dir.mkdir(parents=True, exist_ok=True)
 
 configs = {
     "defog_default": "DeFoG Default Parameters",
@@ -24,7 +29,7 @@ vun_results = {cfg: {"steps": [], "mean": [], "std": []} for cfg in configs}
 
 for cfg, label in configs.items():
     for steps in num_steps_list:
-        exp_dir = outputs_dir / cfg / f"{args[1]}_{cfg}_{steps}_steps"
+        exp_dir = outputs_dir / cfg / f"{args[1]}_{steps}_steps"
 
         metric_files = list(exp_dir.glob("test_epoch*"))
         if not metric_files:

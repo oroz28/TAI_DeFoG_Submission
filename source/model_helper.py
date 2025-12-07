@@ -170,9 +170,8 @@ def run_dataset_with_model(
     for steps in num_steps_list:
         print(f"\nRunning {dataset} experiment with {steps} steps...")
 
-        run_dir = outputs_dir / f"{dataset}_{steps}_steps"
-
         if mlp_model is not None and use_model:
+            run_dir = outputs_dir / "defog_model" /f"{dataset}_{steps}_steps"
             if dataset == "planar":
                 best_cfg = mlp_model.optimize_params(num_steps=steps)
                 eta = best_cfg["eta"]
@@ -188,6 +187,7 @@ def run_dataset_with_model(
                 distortion = df_lookup.loc[df_lookup["num_steps"] == steps, "distortion"].values[0]
                 print(f"Using lookup table parameters: eta={eta}, omega={omega}, distortion={distortion}")
         else:
+            run_dir = outputs_dir / "defog_default" / f"{dataset}_{steps}_steps"
             # default parameters
             if dataset == "planar":
                 eta = 50.0
@@ -205,8 +205,6 @@ def run_dataset_with_model(
             "sample.time_distortion": distortion,
             "general.test_only": checkpoint,
             "hydra.run.dir": str(run_dir.resolve()),
-            "+general.num_sample_fold": 5,
-            "+general.visualization": False,
         }
 
         run_defog_experiments(
@@ -214,7 +212,8 @@ def run_dataset_with_model(
             num_steps_list=[steps],
             outputs_dir=outputs_dir,
             defog_src_path=defog_src_path,
-            overrides_per_experiment={dataset: overrides},
+            overrides_per_experiment={experiments[0]: overrides},
             name_prefix=f"{dataset}_{steps}",
             verbose=True,
+            extra_args=["visualization=False", "general.num_sample_fold=5"],
         )

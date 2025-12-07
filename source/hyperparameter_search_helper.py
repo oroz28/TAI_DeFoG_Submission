@@ -65,17 +65,20 @@ def evaluate_convo(
         "general.num_sample_fold": num_folds,
         "visualization": False,
         "general.test_only": f"/home/group-2/TAI_defog/tai_defog/checkpoints/{exp_name}",
+        "hydra.run.dir": str(output_dir.resolve()),
     }
     if samples_to_generate is not None:
         overrides["general.final_model_samples_to_generate"] = samples_to_generate
     if condition_value is not None:
         overrides["general.condition_values"] = condition_value
+        
+    print(output_dir)
 
     # run experiment
     run_defog_experiments(
         experiments=[exp_name],
         num_steps_list=[num_steps],
-        outputs_dir=outputs_dir,
+        outputs_dir=output_dir,
         defog_src_path=defoq_src,
         overrides_per_experiment={exp_name: overrides},
         name_prefix=output_prefix,

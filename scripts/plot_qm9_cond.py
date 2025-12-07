@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-csv_path = "/home/group-2/Submission_Code/outputs/qm9_con_grid_output/grid_summary_results.csv"
+csv_path = "/home/group-2/Submission_Code/outputs/qm9_final_gridsearch/summary_results_qm9.csv"
 
 results_dir = Path("/home/group-2/Submission_Code/results/plots/")
 out_path = results_dir / 'qm9_cond_validity.png'

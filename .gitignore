@@ -17,5 +17,6 @@ env/
 # Outputs, logs, results (optional, if you don't want to track them)
 outputs/
 results/
+checkpoints/
 logs/
 

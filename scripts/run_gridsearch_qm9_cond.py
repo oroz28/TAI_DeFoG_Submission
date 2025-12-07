@@ -14,4 +14,5 @@ run_hyperparameter_search(
     conditional_list=[-400],
     samples_to_generate=2048,
     defog_src = path,
+    num_folds=5,
 )

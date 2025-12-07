@@ -29,6 +29,7 @@ def run_defog_experiments(
         overrides_per_experiment: dict mapping experiment names to their specific overrides
     """
 
+    print(f"Outputs directory: {outputs_dir}")
     outputs_dir.mkdir(exist_ok=True, parents=True)
     pythonpath = f":{defog_src_path.parent.resolve()}{pythonpath_extra}"
 

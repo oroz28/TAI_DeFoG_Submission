@@ -20,14 +20,14 @@ def main():
     outputs_dir.mkdir(parents=True, exist_ok=True)
 
     # num_steps list
-    num_steps_list = np.arange(20, 101, 5).tolist()
+    num_steps_list = np.arange(5, 51, 5).tolist()
     mlp_model = None
     
     # checkpoint paths and model loading
     if args.dataset == "planar":
         checkpoint = repo_root / "checkpoints" / "planar.ckpt"
         if args.use_model:
-            csv_path = repo_root / "planar_con_grid_output" / "grid_summary_results_planar.csv"
+            csv_path = repo_root / "results" / "tables" / "grid_summary_results_planar.csv"
             df_existing = pd.read_csv(csv_path)
             mlp_model = VUNPredictorMLP(df_existing=df_existing)
     else:
