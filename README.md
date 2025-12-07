@@ -44,7 +44,7 @@ Each script corresponds to a specific test, such as:
 - Dataset-specific analyses (planar, tree, sbm, qm9, tls…)
 - ...
 
-These scripts demonstrate how to use the tools inside `source/` to reproduce every experiment performed.
+These scripts demonstrate how to use the tools inside `source/` to reproduce every performed experiment.
 
 ### Required Checkpoints
 
@@ -123,10 +123,10 @@ The replication is divided into three main sets of experiments:
 ---
 
 
-## Additional Experiments Performed
+## Additional Performed Experiments
 
-Beyond the replication of the original DeFoG results, we conducted an extensive set of **additional experiments** to explore new behaviors, sampling configurations, and model variations.  
-Since the execution pipeline and structure of these experiments follow the same pattern as those used for result reproduction, we avoid duplicating unnecessary information here.
+Beyond the replication of the original DeFoG results, we conducted a set of **additional experiments** to explore new behaviors, sampling configurations, and model variations.  
+Since the structure of these experiments follow the same pattern as those used for result reproduction, we only provide an overview.
 
 The additional experiments include:
 
@@ -155,7 +155,7 @@ The additional experiments include:
 ## Modifications to the Original DeFoG Code
 
 As already mentioned, our entire project is based on the **DeFoG paper** and its official implementation.  
-To adapt the framework to our experiments and to incorporate new evaluation procedures, sampling strategies, and fixes, we modified several parts of the original source code.
+To adapt the framework to our experiments and to incorporate new evaluation procedures, sampling strategies, and fixed nodes during sampling, we modified several parts of the original source code.
 
 To make our changes easy to identify, **every addition or correction is enclosed between special hashtag markers (`### OUR CODE START` / `### OUR CODE END`)** across all edited files.  
 This allows any user to quickly locate and inspect the exact modifications introduced during the project.
@@ -177,9 +177,7 @@ Below is the complete list of files that were modified or added:
 - `configs/experiment/qm9_conditional.yaml`  
 - `configs/experiment/qm9_with_h_conditional.yaml`  
 
-All modifications were necessary to support the extended experimentation performed in this project, including new distortion modes, conditional generation for QM9, fixed-node sampling, hyperparameter prediction with MLP, and various evaluation pipelines.
-
----
+All modifications were necessary to support the experimentation for this project.
 
 
 
