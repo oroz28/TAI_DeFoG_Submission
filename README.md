@@ -3,7 +3,7 @@
 ## Introduction
 
 This repository is based on the original **DeFoG** framework, available at:  
-https://github.com/HaroldHolmes/defog
+https://github.com/manuelmlmadeira/DeFoG
 
 DeFoG provides a generative model for graph synthesis using discrete normalizing flows.  
 In this project, we first focused on **replicating the experimental results** from the original paper and validating the behavior of the provided checkpoints. After achieving reproducibility, we explored several **possible improvements to the sampling process**, as mentioned in the report.
