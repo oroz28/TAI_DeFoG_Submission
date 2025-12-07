@@ -135,7 +135,7 @@ The additional experiments include:
   *(Scripts: `run_distortion_experiments.py`, `plot_distortion_experiments.py`)*
 
 - **Fixed Subgraph Experiments (Fixed Nodes)**  
-  Testing the impact of fixing subsets of nodes or subgraphs during generation, including full validity analysis and discussion of structural constraints.  
+  Testing the impact of fixing subsets of nodes or subgraphs during generation, including full validity analysis and discussion of structural constraints. In order to run this experiment, you should generate the desired subgraphs to be fixed. For example, we decided to first fix some nodes and edges from original graphs of the validation set, in order to ensure the validity of the select subgraph. Then you would be able to generate constrained graphs that would maintain that subgraph throughout the whole generation process.
   *(Scripts: `run_subgraphs.py`, `make_validity_table.py`, including all tested options explained on the report, `plot_discussion_len_fixed_nodes.py`)*
 
 - **Hyperparameter Search (Grid Search & Random Search)**  
